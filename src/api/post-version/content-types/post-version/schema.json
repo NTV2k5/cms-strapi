@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_versions",
+  "info": {
+    "singularName": "post-version",
+    "pluralName": "post-versions",
+    "displayName": "Post Version",
+    "description": "Store snapshots of posts for version control"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "versions"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
