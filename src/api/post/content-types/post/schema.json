@@ -90,6 +90,13 @@
       "relation": "oneToMany",
       "target": "api::blog-comment.blog-comment",
       "mappedBy": "post"
+    },
+    "readTime": {
+      "type": "integer"
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
