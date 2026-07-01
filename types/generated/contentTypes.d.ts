@@ -702,6 +702,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    readTime: Schema.Attribute.Integer;
     scheduledPublishAt: Schema.Attribute.DateTime;
     series: Schema.Attribute.Relation<
       'manyToOne',
@@ -721,6 +722,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::post-version.post-version'
     >;
+    viewCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
   };
 }
 
@@ -1230,6 +1232,7 @@ export interface PluginUsersPermissionsUser
       'manyToMany',
       'plugin::users-permissions.user'
     >;
+    github: Schema.Attribute.String;
     jobTitle: Schema.Attribute.String;
     liked_posts: Schema.Attribute.Relation<'manyToMany', 'api::post.post'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1238,6 +1241,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -1252,6 +1256,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.role'
     >;
     saved_posts: Schema.Attribute.Relation<'manyToMany', 'api::post.post'>;
+    twitter: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1261,6 +1266,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    website: Schema.Attribute.String;
   };
 }
 
